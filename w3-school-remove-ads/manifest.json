@@ -20,5 +20,16 @@
                 "mac": "Command+B"
             }
         }
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.w3schools.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
 }
