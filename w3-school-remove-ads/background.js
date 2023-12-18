@@ -21,14 +21,16 @@ chrome.action.onClicked.addListener(async (tab) => {
                 files: ["remove-ads.css"],
                 target: { tabId: tab.id },
             });
-            //midDiv.classList.add('midDiv');
+            // pass msg to content script to remove body ads
+            await chrome.tabs.sendMessage(tab.id, {status: "ON"});
         } else if (nextState === "OFF") {
             // Remove the CSS file when the user turns the extension off
             await chrome.scripting.removeCSS({
                 files: ["remove-ads.css"],
                 target: { tabId: tab.id },
             });
-            //midDiv.classList.remove('midDiv');
+            // pass msg to content script to add body ads
+            await chrome.tabs.sendMessage(tab.id, {status: "OFF"});
         }
     }
 });

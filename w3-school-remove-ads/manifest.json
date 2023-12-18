@@ -29,6 +29,7 @@
             "js": [
                 "content.js"
             ],
+            "css": ["content-style.css"],
             "run_at": "document_end"
         }
     ]
